@@ -1,12 +1,10 @@
 import React from 'react';
 
-// Screen Components
-import HomeScreen from '../Components/screens/HomeScreen';
-import CounterScreen from '../Components/screens/CounterScreen';
-import ProfileScreen from '../Components/screens/ProfileScreen';
-import SettingsScreen from '../Components/screens/SettingsScreen';
-
 import {SCREEN_NAMES} from './ScreenNames';
+import HomeScreen from '../Containers/HomeScreen';
+import CounterScreen from '../Containers/CounterScreen';
+import ProfileScreen from '../Containers/ProfileScreen';
+import SettingsScreen from '../Containers/SettingsScreen';
 
 export interface ScreenConfig {
   component: React.ComponentType<any>;

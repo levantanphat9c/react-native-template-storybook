@@ -1,13 +1,11 @@
 import React from 'react';
-import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
+import {StyleSheet, SafeAreaView} from 'react-native';
+import Swiper from '../Components/Swiper';
 
 const SettingsScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.title}>Settings Screen</Text>
-        <Text style={styles.subtitle}>App configuration and preferences</Text>
-      </View>
+      <Swiper />
     </SafeAreaView>
   );
 };

@@ -1,58 +1,11 @@
-import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  SafeAreaView,
-  TouchableOpacity,
-} from 'react-native';
-import {useAppDispatch} from '../ReduxSaga/hooks';
-import {setUser, clearUser} from '../ReduxSaga/slices/userSlice';
+import React from 'react';
+import {StyleSheet, SafeAreaView} from 'react-native';
+import InfiniteSwiper from '../Components/InfiniteSwiper';
 
 const ProfileScreen: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const handleLogin = () => {
-    dispatch(
-      setUser({
-        id: '1',
-        name: 'John Doe',
-        email: 'john.doe@example.com',
-      }),
-    );
-    setIsLoggedIn(true);
-  };
-
-  const handleLogout = () => {
-    dispatch(clearUser());
-    setIsLoggedIn(false);
-  };
-
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.title}>Profile Screen</Text>
-
-        {isLoggedIn ? (
-          <View style={styles.userInfo}>
-            <Text style={styles.userName}>John Doe</Text>
-            <Text style={styles.userEmail}>john.doe@example.com</Text>
-            <TouchableOpacity
-              style={[styles.button, styles.logoutButton]}
-              onPress={handleLogout}>
-              <Text style={styles.buttonText}>Logout</Text>
-            </TouchableOpacity>
-          </View>
-        ) : (
-          <View style={styles.guestInfo}>
-            <Text style={styles.guestText}>You are not logged in</Text>
-            <TouchableOpacity style={styles.button} onPress={handleLogin}>
-              <Text style={styles.buttonText}>Login as Demo User</Text>
-            </TouchableOpacity>
-          </View>
-        )}
-      </View>
+      <InfiniteSwiper />
     </SafeAreaView>
   );
 };
