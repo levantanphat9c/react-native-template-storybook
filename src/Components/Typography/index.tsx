@@ -5,7 +5,6 @@ import ParsedText, {ParseShape} from 'react-native-parsed-text';
 import Animated, {AnimatedProps} from 'react-native-reanimated';
 
 import withMemo from '@/HOC/withMemo';
-import {useColor} from '@/Hooks/useColor';
 
 import useStyles from './styles';
 import {TYPOGRAPHY_VARIANT} from './type';
@@ -19,11 +18,10 @@ export interface ITypographyProps
 }
 
 const Typography = (props: ITypographyProps) => {
-  const {dynamicColor} = useColor();
   const {
     children,
     variant = 'REGULAR_13',
-    color = dynamicColor.UI.textContent,
+    color = 'black',
     parse,
     style,
     ...rest
