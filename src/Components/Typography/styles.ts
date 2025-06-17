@@ -1,201 +1,124 @@
+import {TextStyle} from 'react-native';
+
 import {IS_ANDROID} from '@/Constants';
-import {getStylesHook} from '@/Hooks';
+import {createThemedStyles} from '@/Hooks';
 
 import {TYPOGRAPHY_VARIANT} from './type';
 
-export const textStyle = getStylesHook({
-  container: {
-    textAlignVertical: 'center',
-  },
-  secureTextEntryIconContainer: {
-    flexDirection: 'row',
-  },
-  [TYPOGRAPHY_VARIANT.BOLD_10]: {
-    fontSize: 10,
-    fontWeight: IS_ANDROID ? undefined : '700',
-    lineHeight: 12,
-    fontFamily: IS_ANDROID ? 'Lato-Bold' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.BOLD_11]: {
-    fontSize: 11,
-    fontWeight: IS_ANDROID ? undefined : '700',
-    lineHeight: 16,
-    fontFamily: IS_ANDROID ? 'Lato-Bold' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.BOLD_12]: {
-    fontSize: 12,
-    fontWeight: IS_ANDROID ? undefined : '700',
-    lineHeight: 18,
-    fontFamily: IS_ANDROID ? 'Lato-Bold' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.BOLD_13]: {
-    fontSize: 13,
-    fontWeight: IS_ANDROID ? undefined : '700',
-    lineHeight: 20,
-    fontFamily: IS_ANDROID ? 'Lato-Bold' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.BOLD_14]: {
-    fontSize: 14,
-    fontWeight: IS_ANDROID ? undefined : '700',
-    lineHeight: 20,
-    fontFamily: IS_ANDROID ? 'Lato-Bold' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.BOLD_15]: {
-    fontSize: 15,
-    fontWeight: IS_ANDROID ? undefined : '700',
-    lineHeight: 20,
-    fontFamily: IS_ANDROID ? 'Lato-Bold' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.BOLD_16]: {
-    fontSize: 16,
-    fontWeight: IS_ANDROID ? undefined : '700',
-    lineHeight: 26,
-    fontFamily: IS_ANDROID ? 'Lato-Bold' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.BOLD_18]: {
-    fontSize: 18,
-    fontWeight: IS_ANDROID ? undefined : '700',
-    lineHeight: 26,
-    fontFamily: IS_ANDROID ? 'Lato-Bold' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.BOLD_20]: {
-    fontSize: 20,
-    fontWeight: IS_ANDROID ? undefined : '700',
-    lineHeight: 28,
-    fontFamily: IS_ANDROID ? 'Lato-Bold' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.BOLD_22]: {
-    fontSize: 22,
-    fontWeight: IS_ANDROID ? undefined : '700',
-    lineHeight: 30,
-    fontFamily: IS_ANDROID ? 'Lato-Bold' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.BOLD_24]: {
-    fontSize: 24,
-    fontWeight: IS_ANDROID ? undefined : '700',
-    lineHeight: 30,
-    fontFamily: IS_ANDROID ? 'Lato-Bold' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.BOLD_28]: {
-    fontSize: 28,
-    fontWeight: IS_ANDROID ? undefined : '700',
-    lineHeight: 36,
-    fontFamily: IS_ANDROID ? 'Lato-Bold' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.BOLD_44]: {
-    fontSize: 44,
-    fontWeight: IS_ANDROID ? undefined : '700',
-    lineHeight: 48,
-    fontFamily: IS_ANDROID ? 'Lato-Bold' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.BOLD_40]: {
-    fontSize: 40,
-    fontWeight: IS_ANDROID ? undefined : '700',
-    lineHeight: 48,
-    fontFamily: IS_ANDROID ? 'Lato-Bold' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.MEDIUM_11]: {
-    fontSize: 11,
-    fontWeight: '500',
-    lineHeight: 16,
-    fontFamily: IS_ANDROID ? 'Lato-Medium' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.MEDIUM_12]: {
-    fontSize: 12,
-    fontWeight: '500',
-    lineHeight: 18,
-    fontFamily: IS_ANDROID ? 'Lato-Medium' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.MEDIUM_13]: {
-    fontSize: 13,
-    fontWeight: '500',
-    lineHeight: 20,
-    fontFamily: IS_ANDROID ? 'Lato-Medium' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.MEDIUM_14]: {
-    fontSize: 14,
-    fontWeight: '500',
-    lineHeight: 20,
-    fontFamily: IS_ANDROID ? 'Lato-Medium' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.MEDIUM_15]: {
-    fontSize: 15,
-    fontWeight: '500',
-    lineHeight: 20,
-    fontFamily: IS_ANDROID ? 'Lato-Medium' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.MEDIUM_16]: {
-    fontSize: 16,
-    fontWeight: '500',
-    lineHeight: 26,
-    fontFamily: IS_ANDROID ? 'Lato-Medium' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.MEDIUM_18]: {
-    fontSize: 18,
-    fontWeight: '500',
-    lineHeight: 26,
-    fontFamily: IS_ANDROID ? 'Lato-Medium' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.MEDIUM_20]: {
-    fontSize: 20,
-    fontWeight: '500',
-    lineHeight: 28,
-    fontFamily: IS_ANDROID ? 'Lato-Medium' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.MEDIUM_24]: {
-    fontSize: 24,
-    fontWeight: '500',
-    lineHeight: 28,
-    fontFamily: IS_ANDROID ? 'Lato-Medium' : 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.REGULAR_11]: {
-    fontSize: 11,
-    fontWeight: '400',
-    lineHeight: 16,
-    fontFamily: 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.REGULAR_12]: {
-    fontSize: 12,
-    fontWeight: '400',
-    lineHeight: 18,
-    fontFamily: 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.REGULAR_13]: {
-    fontSize: 13,
-    fontWeight: '400',
-    lineHeight: 20,
-    fontFamily: 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.REGULAR_14]: {
-    fontSize: 14,
-    fontWeight: '400',
-    lineHeight: 20,
-    fontFamily: 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.REGULAR_15]: {
-    fontSize: 15,
-    fontWeight: '400',
-    lineHeight: 20,
-    fontFamily: 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.REGULAR_16]: {
-    fontSize: 16,
-    fontWeight: '400',
-    lineHeight: 26,
-    fontFamily: 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.REGULAR_18]: {
-    fontSize: 18,
-    fontWeight: '400',
-    lineHeight: 26,
-    fontFamily: 'Lato-Regular',
-  },
-  [TYPOGRAPHY_VARIANT.REGULAR_20]: {
-    fontSize: 20,
-    fontWeight: '400',
-    lineHeight: 28,
-    fontFamily: 'Lato-Regular',
-  },
+// Base typography configuration
+const BASE_TYPOGRAPHY = {
+  fontSizes: {
+    10: 10,
+    11: 11,
+    12: 12,
+    13: 13,
+    14: 14,
+    15: 15,
+    16: 16,
+    18: 18,
+    20: 20,
+    22: 22,
+    24: 24,
+    28: 28,
+    40: 40,
+    44: 44,
+  } as const,
+  lineHeights: {
+    10: 12,
+    11: 16,
+    12: 18,
+    13: 20,
+    14: 20,
+    15: 20,
+    16: 26,
+    18: 26,
+    20: 28,
+    22: 30,
+    24: 30,
+    28: 36,
+    40: 48,
+    44: 48,
+  } as const,
+  weights: {
+    BOLD: IS_ANDROID ? undefined : '700',
+    MEDIUM: '500',
+    REGULAR: '400',
+  } as const,
+  fontFamilies: {
+    BOLD: IS_ANDROID ? 'Lato-Bold' : 'Lato-Regular',
+    MEDIUM: IS_ANDROID ? 'Lato-Medium' : 'Lato-Regular',
+    REGULAR: 'Lato-Regular',
+  } as const,
+};
+
+type FontSize = keyof typeof BASE_TYPOGRAPHY.fontSizes;
+type TypographyVariant = keyof typeof TYPOGRAPHY_VARIANT;
+interface TypographyStyles extends Record<TypographyVariant, TextStyle> {
+  container: TextStyle;
+  secureTextEntryIconContainer: TextStyle;
+}
+
+// Generate typography styles
+const generateTypographyStyles = (): TypographyStyles => {
+  const styles: Partial<TypographyStyles> = {
+    container: {
+      textAlignVertical: 'center' as const,
+    },
+    secureTextEntryIconContainer: {
+      flexDirection: 'row' as const,
+    },
+  };
+
+  // Generate BOLD variants
+  Object.entries(BASE_TYPOGRAPHY.fontSizes).forEach(([size, fontSize]) => {
+    const variant = `BOLD_${size}` as TypographyVariant;
+    const typedSize = Number(size) as FontSize;
+    styles[variant] = {
+      fontSize,
+      fontWeight: BASE_TYPOGRAPHY.weights.BOLD,
+      lineHeight: BASE_TYPOGRAPHY.lineHeights[typedSize],
+      fontFamily: BASE_TYPOGRAPHY.fontFamilies.BOLD,
+    };
+  });
+
+  // Generate MEDIUM variants
+  Object.entries(BASE_TYPOGRAPHY.fontSizes)
+    .filter(([size]) =>
+      ['11', '12', '13', '14', '15', '16', '18', '20', '24'].includes(size),
+    )
+    .forEach(([size, fontSize]) => {
+      const variant = `MEDIUM_${size}` as TypographyVariant;
+      const typedSize = Number(size) as FontSize;
+      styles[variant] = {
+        fontSize,
+        fontWeight: BASE_TYPOGRAPHY.weights.MEDIUM,
+        lineHeight: BASE_TYPOGRAPHY.lineHeights[typedSize],
+        fontFamily: BASE_TYPOGRAPHY.fontFamilies.MEDIUM,
+      };
+    });
+
+  // Generate REGULAR variants
+  Object.entries(BASE_TYPOGRAPHY.fontSizes)
+    .filter(([size]) =>
+      ['11', '12', '13', '14', '15', '16', '18', '20'].includes(size),
+    )
+    .forEach(([size, fontSize]) => {
+      const variant = `REGULAR_${size}` as TypographyVariant;
+      const typedSize = Number(size) as FontSize;
+      styles[variant] = {
+        fontSize,
+        fontWeight: BASE_TYPOGRAPHY.weights.REGULAR,
+        lineHeight: BASE_TYPOGRAPHY.lineHeights[typedSize],
+        fontFamily: BASE_TYPOGRAPHY.fontFamilies.REGULAR,
+      };
+    });
+
+  return styles as TypographyStyles;
+};
+
+const TypographyStyles = generateTypographyStyles();
+export const textStyle = createThemedStyles(TypographyStyles, {
+  styleId: 'typography',
 });
 
 export default textStyle;

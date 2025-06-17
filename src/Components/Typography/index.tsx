@@ -5,10 +5,10 @@ import ParsedText, {ParseShape} from 'react-native-parsed-text';
 import Animated, {AnimatedProps} from 'react-native-reanimated';
 
 import withMemo from '@/HOC/withMemo';
+import {useColor} from '@/Hooks/useColor';
 
 import useStyles from './styles';
 import {TYPOGRAPHY_VARIANT} from './type';
-import {useColor} from '@/Hooks/useColor';
 
 export interface ITypographyProps
   extends TextProps,
@@ -28,7 +28,7 @@ const Typography = (props: ITypographyProps) => {
     style,
     ...rest
   } = props;
-  const {styles} = useStyles();
+  const styles = useStyles();
   const finalStyle = useMemo(() => {
     return [styles.container, styles[variant], {color}, style];
   }, [variant, color, style, styles]);

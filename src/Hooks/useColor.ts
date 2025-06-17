@@ -1,5 +1,6 @@
-import {LightMode, DarkMode} from '@/styles';
 import {useTheme} from '@react-navigation/native';
+
+import {DarkMode, LightMode} from '@/styles';
 
 /**
  * Hook that check dark light mode and return correct color set
@@ -7,7 +8,8 @@ import {useTheme} from '@react-navigation/native';
  * const {dynamicColor, isLight} = useColor();
  */
 export const useColor = () => {
-  const isLight = useTheme();
-  const dynamicColor = isLight ? LightMode : DarkMode;
-  return {dynamicColor, isLight};
+  const theme = useTheme();
+  const isDark = theme.dark;
+  const dynamicColor = isDark ? DarkMode : LightMode;
+  return {dynamicColor, isDark, theme};
 };
