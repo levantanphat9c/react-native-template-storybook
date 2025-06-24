@@ -63,6 +63,9 @@ const generateTypographyStyles = (): TypographyStyles => {
   const styles: Partial<TypographyStyles> = {
     container: {
       textAlignVertical: 'center' as const,
+      justifyContent: 'center',
+      alignItems: 'center',
+      textAlign: 'center',
     },
     secureTextEntryIconContainer: {
       flexDirection: 'row' as const,

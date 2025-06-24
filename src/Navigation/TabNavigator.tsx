@@ -1,9 +1,9 @@
-import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import React from 'react';
 import {Text} from 'react-native';
 
-import {MainTabParamList} from './types';
 import {TAB_SCREEN_MAPPING} from '../Constants/ScreenMapping';
+import {MainTabParamList} from './types';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 

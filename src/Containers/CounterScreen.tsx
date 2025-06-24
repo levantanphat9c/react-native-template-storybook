@@ -1,13 +1,11 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  SafeAreaView,
-  TouchableOpacity,
-} from 'react-native';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
+
+import {Typography} from '@/Components';
+import Button from '@/Components/Button';
+
 import {useAppDispatch, useAppSelector} from '../ReduxSaga/hooks';
-import {increment, decrement, reset} from '../ReduxSaga/slices/counterSlice';
+import {decrement, increment, reset} from '../ReduxSaga/slices/counterSlice';
 
 const CounterScreen: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -16,27 +14,27 @@ const CounterScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.title}>Counter Screen</Text>
-        <Text style={styles.counterText}>{count}</Text>
+        <Typography variant="BOLD_24" style={styles.title}>
+          Counter Screen
+        </Typography>
+        <Typography variant="BOLD_24" style={styles.counterText}>
+          {count}
+        </Typography>
 
         <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => dispatch(increment())}>
-            <Text style={styles.buttonText}>+</Text>
-          </TouchableOpacity>
+          <Button style={styles.button} onPress={() => dispatch(increment())}>
+            +
+          </Button>
 
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => dispatch(decrement())}>
-            <Text style={styles.buttonText}>-</Text>
-          </TouchableOpacity>
+          <Button style={styles.button} onPress={() => dispatch(decrement())}>
+            -
+          </Button>
 
-          <TouchableOpacity
+          <Button
             style={[styles.button, styles.resetButton]}
             onPress={() => dispatch(reset())}>
-            <Text style={styles.buttonText}>Reset</Text>
-          </TouchableOpacity>
+            Reset
+          </Button>
         </View>
       </View>
     </SafeAreaView>
@@ -55,14 +53,10 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    fontSize: 28,
-    fontWeight: 'bold',
     marginBottom: 30,
     color: '#333',
   },
   counterText: {
-    fontSize: 48,
-    fontWeight: 'bold',
     marginBottom: 40,
     color: '#007AFF',
   },

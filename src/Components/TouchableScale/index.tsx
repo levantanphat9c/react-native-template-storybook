@@ -14,7 +14,8 @@ import withMemo from '@/HOC/withMemo';
 const AnimatedTouchableOpacity =
   Animated.createAnimatedComponent(TouchableOpacity);
 
-interface IProps extends AnimatedProps<TouchableOpacityProps> {
+export interface ITouchableScaleProps
+  extends AnimatedProps<TouchableOpacityProps> {
   children?: React.ReactNode;
   minScale?: number;
   onPressIn?: () => void;
@@ -37,7 +38,7 @@ const TouchableScale = ({
   onPressIn,
   onPressOut,
   ...rest
-}: IProps) => {
+}: ITouchableScaleProps) => {
   const scale = useSharedValue(1);
 
   const sz = useAnimatedStyle(() => {

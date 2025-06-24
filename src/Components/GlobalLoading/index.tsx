@@ -2,10 +2,11 @@ import React, {useEffect, useImperativeHandle, useState} from 'react';
 import {ActivityIndicator, BackHandler, StatusBar, View} from 'react-native';
 
 import {IS_ANDROID} from '@/Constants';
+import withMemo from '@/HOC/withMemo';
+import {useColor} from '@/Hooks';
 
 import Typography from '../Typography';
 import useStyles from './styles';
-import withMemo from '@/HOC/withMemo';
 
 type RefType = {
   show: () => void;
@@ -33,7 +34,8 @@ interface IProps {
 
 const GlobalLoading = React.forwardRef<RefType, IProps>((props, ref) => {
   const [visible, setVisible] = useState(props?.visible ?? false);
-  const {styles, dynamicColors} = useStyles();
+  const styles = useStyles();
+  const {dynamicColor} = useColor();
   const show = () => {
     setVisible(true);
   };
@@ -71,13 +73,13 @@ const GlobalLoading = React.forwardRef<RefType, IProps>((props, ref) => {
 
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor={dynamicColors.Opacity.blueGray50Percent} />
+      <StatusBar backgroundColor={dynamicColor.Opacity.blueGray50Percent} />
       <View style={styles.containerLoading}>
         <ActivityIndicator size="small" />
 
         <Typography
           variant={'REGULAR_14'}
-          color={dynamicColors.UI.sureface}
+          color={dynamicColor.UI.sureface}
           style={styles.text}>
           Đang tải...
         </Typography>
