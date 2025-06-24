@@ -1,97 +1,355 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native Template - Storybook
 
-# Getting Started
+A comprehensive React Native template with modern development setup, Redux Toolkit, Navigation, and best practices.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 🚀 Features
 
-## Step 1: Start Metro
+- **React Native 0.79.3** with TypeScript
+- **Redux Toolkit** for state management
+- **React Navigation** with bottom tabs and stack navigation
+- **Modern Development Tools**:
+  - ESLint + Prettier for code formatting
+  - Jest for testing
+  - TypeScript for type safety
+  - Babel module resolver for clean imports
+- **Pre-built Components**:
+  - Button, Typography, Modal, Swiper
+  - Global Loading, TouchableScale, InfiniteSwiper
+- **Project Structure**:
+  - Organized folder structure
+  - Custom hooks and utilities
+  - Redux slices with TypeScript
+  - Navigation types and configuration
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 📋 Prerequisites
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+Before using this template, make sure you have the following installed:
 
-```sh
-# Using npm
-npm start
+- [Node.js](https://nodejs.org/) (>= 18)
+- [Yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/)
+- [React Native CLI](https://reactnative.dev/docs/environment-setup)
+- [Xcode](https://developer.apple.com/xcode/) (for iOS development)
+- [Android Studio](https://developer.android.com/studio) (for Android development)
 
-# OR using Yarn
-yarn start
+## 🛠️ Installation
+
+### Option 1: Using React Native CLI (Recommended)
+
+```bash
+npx react-native@latest init YourProjectName --template https://github.com/yourusername/react-native-template-storybook
 ```
 
-## Step 2: Build and run your app
+### Option 2: Manual Setup
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+1. Clone this template:
 
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```bash
+git clone https://github.com/yourusername/react-native-template-storybook.git YourProjectName
+cd YourProjectName
 ```
 
-### iOS
+2. Install dependencies:
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+```bash
+yarn install
+# or
+npm install
+```
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+3. Install iOS dependencies (macOS only):
 
-```sh
+```bash
 bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
 bundle exec pod install
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+## 🔧 Configuration
 
-```sh
-# Using npm
-npm run ios
+### 1. Update Project Information
 
-# OR using Yarn
-yarn ios
+Replace the following placeholders in your project:
+
+- `{{PROJECT_NAME}}` in `app.json`
+- `{{DISPLAY_NAME}}` in `app.json`
+- Update `package.json` name and description
+- Update bundle identifier in iOS and Android projects
+
+### 2. Environment Setup
+
+Create a `.env` file in the root directory:
+
+```env
+API_BASE_URL=your_api_url_here
+API_KEY=your_api_key_here
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+### 3. iOS Configuration
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+Update the bundle identifier in `ios/Storybook.xcodeproj/project.pbxproj`:
 
-## Step 3: Modify your app
+```bash
+# Replace 'com.storybook' with your bundle identifier
+# Example: com.yourcompany.yourapp
+```
 
-Now that you have successfully run the app, let's make changes!
+### 4. Android Configuration
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+Update the package name in `android/app/src/main/java/com/storybook/`:
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+```bash
+# Rename the folder structure to match your package name
+# Example: com.yourcompany.yourapp
+```
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+## 🏃‍♂️ Running the App
 
-## Congratulations! :tada:
+### Start Metro Bundler
 
-You've successfully run and modified your React Native App. :partying_face:
+```bash
+yarn start
+# or
+npm start
+```
 
-### Now what?
+### Run on iOS
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+```bash
+yarn ios
+# or
+npm run ios
+```
 
-# Troubleshooting
+### Run on Android
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+```bash
+yarn android
+# or
+npm run android
+```
 
-# Learn More
+## 📁 Project Structure
 
-To learn more about React Native, take a look at the following resources:
+```
+src/
+├── Components/          # Reusable UI components
+│   ├── Button/
+│   ├── Typography/
+│   ├── Modal/
+│   ├── Swiper/
+│   └── ...
+├── Containers/          # Screen components
+├── Navigation/          # Navigation configuration
+├── ReduxSaga/           # Redux store and slices
+├── Services/            # API and external services
+├── Hooks/               # Custom React hooks
+├── Utils/               # Utility functions
+├── Constants/           # App constants
+├── Interfaces/          # TypeScript interfaces
+└── styles/              # Global styles and themes
+```
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## 🧪 Testing
+
+```bash
+# Run tests
+yarn test
+
+# Run tests in watch mode
+yarn test:watch
+
+# Run tests with coverage
+yarn test:coverage
+```
+
+## 🔍 Code Quality
+
+```bash
+# Lint code
+yarn lint
+
+# Fix linting issues
+yarn lint:fix
+
+# Format code
+yarn format
+
+# Type checking
+yarn type-check
+```
+
+## 🧹 Clean Commands
+
+```bash
+# Clean node_modules and reinstall
+yarn clean
+
+# Clean Android build
+yarn clean:android
+
+# Clean iOS build
+yarn clean:ios
+
+# Install/Update iOS pods
+yarn pod:install
+yarn pod:update
+```
+
+## 📱 Available Components
+
+### Basic Components
+
+- **Button**: Customizable button component with different variants
+- **Typography**: Text components with consistent styling
+- **Modal**: Modal component with backdrop and animations
+- **Swiper**: Image carousel component
+- **InfiniteSwiper**: Infinite scroll carousel
+- **TouchableScale**: Touchable component with scale animation
+- **GlobalLoading**: Global loading indicator
+
+### Usage Examples
+
+```tsx
+import {Button, Typography, Modal} from './src/Components';
+
+// Button usage
+<Button
+  title="Press Me"
+  onPress={() => console.log('Pressed!')}
+  variant="primary"
+/>
+
+// Typography usage
+<Typography variant="h1">Hello World</Typography>
+
+// Modal usage
+<Modal visible={isVisible} onClose={() => setIsVisible(false)}>
+  <Typography>Modal Content</Typography>
+</Modal>
+```
+
+## 🔄 State Management
+
+This template uses Redux Toolkit for state management. Example slice:
+
+```tsx
+// src/ReduxSaga/slices/counterSlice.ts
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+
+interface CounterState {
+  value: number;
+}
+
+const initialState: CounterState = {
+  value: 0,
+};
+
+export const counterSlice = createSlice({
+  name: 'counter',
+  initialState,
+  reducers: {
+    increment: state => {
+      state.value += 1;
+    },
+    decrement: state => {
+      state.value -= 1;
+    },
+  },
+});
+
+export const {increment, decrement} = counterSlice.actions;
+export default counterSlice.reducer;
+```
+
+## 🧭 Navigation
+
+The template includes React Navigation with TypeScript support:
+
+```tsx
+// Usage in components
+import {useNavigation} from '@react-navigation/native';
+
+import {RootStackParamList} from './src/Navigation/types';
+
+// Navigation types
+export type RootStackParamList = {
+  Home: undefined;
+  Profile: {userId: string};
+  Settings: undefined;
+};
+
+const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+```
+
+## 🎨 Styling
+
+The template includes a comprehensive styling system:
+
+```tsx
+// Using the style system
+import {useStyle} from './src/Hooks/useStyle';
+
+const styles = useStyle(theme => ({
+  container: {
+    flex: 1,
+    backgroundColor: theme.colors.background,
+  },
+}));
+```
+
+## 📦 Dependencies
+
+### Core Dependencies
+
+- React Native 0.79.3
+- React Navigation 7.x
+- Redux Toolkit 2.x
+- React Native Reanimated 3.x
+- React Native Gesture Handler 2.x
+
+### Development Dependencies
+
+- TypeScript 5.x
+- ESLint + Prettier
+- Jest + Testing Library
+- Babel module resolver
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+If you encounter any issues or have questions:
+
+1. Check the [Issues](https://github.com/yourusername/react-native-template-storybook/issues) page
+2. Create a new issue with detailed information
+3. Contact the maintainers
+
+## 🔄 Updates
+
+To keep your project up to date with the latest template changes:
+
+1. Add this repository as a remote:
+
+```bash
+git remote add template https://github.com/yourusername/react-native-template-storybook.git
+```
+
+2. Fetch and merge updates:
+
+```bash
+git fetch template
+git merge template/main
+```
+
+---
+
+**Happy Coding! 🎉**

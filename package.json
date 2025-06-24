@@ -1,13 +1,35 @@
 {
-  "name": "Storybook",
-  "version": "0.0.1",
+  "name": "react-native-template-storybook",
+  "version": "1.0.0",
   "private": true,
+  "description": "A comprehensive React Native template with Redux Toolkit, Navigation, and modern development setup",
+  "keywords": [
+    "react-native",
+    "template",
+    "redux",
+    "navigation",
+    "typescript",
+    "jest",
+    "eslint"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "clean": "rm -rf node_modules && yarn install",
+    "clean:android": "cd android && ./gradlew clean && cd ..",
+    "clean:ios": "cd ios && xcodebuild clean && cd ..",
+    "pod:install": "cd ios && bundle exec pod install && cd ..",
+    "pod:update": "cd ios && bundle exec pod update && cd ..",
+    "format": "prettier --write .",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^2.2.0",

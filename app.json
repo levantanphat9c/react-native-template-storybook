@@ -1,4 +1,4 @@
 {
-  "name": "Storybook",
-  "displayName": "Storybook"
+  "name": "{{PROJECT_NAME}}",
+  "displayName": "{{DISPLAY_NAME}}"
 }
