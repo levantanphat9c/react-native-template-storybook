@@ -4,9 +4,21 @@ A comprehensive React Native template with modern development setup, Redux Toolk
 
 ## 🚀 Features
 
-- **React Native 0.79.3** with TypeScript
+- **React Native 0.80.0** with TypeScript
 - **Redux Toolkit** for state management
 - **React Navigation** with bottom tabs and stack navigation
+- **Error Handling**:
+  - Error Boundary for crash protection
+  - Centralized error handling service
+  - Error logging and reporting
+- **Loading States Management**:
+  - Global loading state management
+  - Custom loading hooks
+  - Loading task tracking
+- **Internationalization (i18n)**:
+  - Multi-language support (English, Vietnamese)
+  - Translation management
+  - Language switching
 - **Modern Development Tools**:
   - ESLint + Prettier for code formatting
   - Jest for testing
@@ -15,6 +27,7 @@ A comprehensive React Native template with modern development setup, Redux Toolk
 - **Pre-built Components**:
   - Button, Typography, Modal, Swiper
   - Global Loading, TouchableScale, InfiniteSwiper
+  - ErrorBoundary, LanguageSelector
 - **Project Structure**:
   - Organized folder structure
   - Custom hooks and utilities

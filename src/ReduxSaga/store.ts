@@ -1,11 +1,14 @@
 import {configureStore} from '@reduxjs/toolkit';
+
 import counterSlice from './slices/counterSlice';
+import loadingSlice from './slices/loadingSlice';
 import userSlice from './slices/userSlice';
 
 export const store = configureStore({
   reducer: {
     counter: counterSlice,
     user: userSlice,
+    loading: loadingSlice,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

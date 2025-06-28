@@ -1,0 +1,45 @@
+{
+  "common": {
+    "ok": "OK",
+    "cancel": "Cancel",
+    "retry": "Retry",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "tryAgain": "Try Again"
+  },
+  "navigation": {
+    "home": "Home",
+    "profile": "Profile",
+    "settings": "Settings",
+    "counter": "Counter"
+  },
+  "screens": {
+    "home": {
+      "title": "Welcome to Storybook",
+      "description": "A comprehensive React Native template"
+    },
+    "counter": {
+      "title": "Counter",
+      "increment": "Increase",
+      "decrement": "Decrease",
+      "reset": "Reset"
+    },
+    "profile": {
+      "title": "Profile",
+      "name": "Name",
+      "email": "Email"
+    },
+    "settings": {
+      "title": "Settings",
+      "language": "Language",
+      "theme": "Theme",
+      "notifications": "Notifications"
+    }
+  },
+  "errors": {
+    "general": "Something went wrong",
+    "network": "Network error",
+    "unknown": "Unknown error occurred"
+  }
+}

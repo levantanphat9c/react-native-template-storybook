@@ -1,11 +1,46 @@
 import React from 'react';
-import {StyleSheet, SafeAreaView} from 'react-native';
-import Swiper from '../Components/Swiper';
+import {SafeAreaView, ScrollView, StyleSheet, View} from 'react-native';
+
+import {Typography} from '@/Components';
+import LanguageSelector from '@/Components/LanguageSelector';
+import {useTranslation} from '@/Hooks/useTranslation';
 
 const SettingsScreen: React.FC = () => {
+  const {t} = useTranslation();
+
   return (
     <SafeAreaView style={styles.container}>
-      <Swiper />
+      <ScrollView style={styles.scrollView}>
+        <Typography variant="BOLD_24" color="primary" style={styles.title}>
+          {t('screens.settings.title')}
+        </Typography>
+
+        <LanguageSelector style={styles.section} />
+
+        <View style={styles.section}>
+          <Typography
+            variant="BOLD_16"
+            color="text"
+            style={styles.sectionTitle}>
+            {t('screens.settings.theme')}
+          </Typography>
+          <Typography variant="REGULAR_14" color="textSecondary">
+            Coming soon...
+          </Typography>
+        </View>
+
+        <View style={styles.section}>
+          <Typography
+            variant="BOLD_16"
+            color="text"
+            style={styles.sectionTitle}>
+            {t('screens.settings.notifications')}
+          </Typography>
+          <Typography variant="REGULAR_14" color="textSecondary">
+            Coming soon...
+          </Typography>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -15,22 +50,19 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f5f5f5',
   },
-  content: {
+  scrollView: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
+    padding: 16,
   },
   title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    marginBottom: 10,
-    color: '#333',
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#666',
+    marginBottom: 24,
     textAlign: 'center',
+  },
+  section: {
+    marginBottom: 24,
+  },
+  sectionTitle: {
+    marginBottom: 12,
   },
 });
 

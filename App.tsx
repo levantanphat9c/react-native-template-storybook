@@ -6,18 +6,24 @@
  */
 
 import React from 'react';
-import {Provider} from 'react-redux';
-import {store} from './src/ReduxSaga/store';
-import RootNavigator from './src/Navigation/RootNavigator';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {Provider} from 'react-redux';
+
+import ErrorBoundary from './src/Components/ErrorBoundary';
+import RootNavigator from './src/Navigation/RootNavigator';
+import {store} from './src/ReduxSaga/store';
+
+import './src/Services/i18n';
 
 const App: React.FC = () => {
   return (
-    <Provider store={store}>
-      <GestureHandlerRootView style={{flex: 1}}>
-        <RootNavigator />
-      </GestureHandlerRootView>
-    </Provider>
+    <ErrorBoundary>
+      <Provider store={store}>
+        <GestureHandlerRootView style={{flex: 1}}>
+          <RootNavigator />
+        </GestureHandlerRootView>
+      </Provider>
+    </ErrorBoundary>
   );
 };
 

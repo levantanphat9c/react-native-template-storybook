@@ -2,3 +2,8 @@ export {default as GlobalLoading} from './GlobalLoading';
 export {default as Modal} from './Modal';
 export {default as Typography} from './Typography';
 export {default as InfiniteSwiper} from './InfiniteSwiper';
+export {default as Button} from './Button';
+export {default as Swiper} from './Swiper';
+export {default as TouchableScale} from './TouchableScale';
+export {default as ErrorBoundary} from './ErrorBoundary';
+export {default as LanguageSelector} from './LanguageSelector';
