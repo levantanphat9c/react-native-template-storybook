@@ -69,6 +69,7 @@ interface ScaleConfig {
 }
 
 // Optimized auto-scale function
+// Keys starting with underscore (_) will skip scaling
 const autoScaleStyles = <T extends Record<string, any>>(
   styleObj: T,
   scaleConfig: ScaleConfig,
@@ -82,6 +83,12 @@ const autoScaleStyles = <T extends Record<string, any>>(
 
   for (const [key, value] of Object.entries(styleObj)) {
     const typedKey = key as keyof T;
+
+    // Skip scaling for keys that start with underscore
+    if (key.startsWith('_')) {
+      (scaledStyle as any)[typedKey] = value;
+      continue;
+    }
 
     if (typeof value === 'number') {
       if (SCALABLE_PROPERTIES.has(key as any)) {
@@ -131,7 +138,7 @@ const processStyles = <T extends NamedStyles<T>>(
   cacheKey: string,
 ): T => {
   // Check cache first
-  if (styleCache.has(cacheKey)) {
+  if (styleCache.has(cacheKey) && __DEV__ === false) {
     return styleCache.get(cacheKey) as T;
   }
 
@@ -303,18 +310,31 @@ export const getStyleCacheInfo = () => ({
 /**
 1. Simple usage
 const styles = useThemedStyles<ComponentStyles>(styleFunction, 'my-id');
+
 2. Factory pattern
 const useMyStyles = createThemedStyles<ComponentStyles>(styleFunction, {
   autoScale: true,
   styleId: 'component-id'
 });
+
 3. Adaptive scaling
 const styles = useAdaptiveStyles<ComponentStyles>(styleFunction, {
   scaleOnSmallDevices: true,
   scaleOnTablets: false,
 });
+
 4. Manual control
 const styles = useThemedStylesManual<ComponentStyles>(styleFunction);
+
+5. Skip scaling with underscore prefix
+const styleFunction = (colors: any) => ({
+  container: {
+    width: 100,        // Will be scaled
+    height: 50,        // Will be scaled
+    _width: 100,       // Will NOT be scaled (underscore prefix)
+    _customProp: 20,   // Will NOT be scaled (underscore prefix)
+  }
+});
  */
 export default {
   useThemedStyles,

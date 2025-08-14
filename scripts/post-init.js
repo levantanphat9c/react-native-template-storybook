@@ -23,7 +23,7 @@ if (fs.existsSync(packageJsonPath)) {
 const appJsonPath = path.join(process.cwd(), 'app.json');
 if (fs.existsSync(appJsonPath)) {
   const appJson = JSON.parse(fs.readFileSync(appJsonPath, 'utf8'));
-  appJson.name = projectName.toLowerCase().replace(/[^a-z0-9]/g, '');
+  appJson.name = projectName;
   appJson.displayName = projectName;
   fs.writeFileSync(appJsonPath, JSON.stringify(appJson, null, 2));
 }

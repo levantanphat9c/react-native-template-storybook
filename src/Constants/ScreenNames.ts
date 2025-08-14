@@ -4,6 +4,7 @@ export const SCREEN_NAMES = {
   COUNTER: 'Counter',
   PROFILE: 'Profile',
   SETTINGS: 'Settings',
+  CHEMISTRY: 'Chemistry',
 
   // Stack Screens
   MAIN_TABS: 'MainTabs',

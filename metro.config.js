@@ -11,7 +11,9 @@ const {
   wrapWithReanimatedMetroConfig,
 } = require('react-native-reanimated/metro-config');
 
-const config = {};
+const config = {
+  resetCache: true,
+};
 
 module.exports = mergeConfig(
   getDefaultConfig(__dirname),

@@ -15,12 +15,16 @@ import {store} from './src/ReduxSaga/store';
 
 import './src/Services/i18n';
 
+import ModalWrapper from '@/Components/Modal/ModalWrapper';
+
 const App: React.FC = () => {
   return (
     <ErrorBoundary>
       <Provider store={store}>
         <GestureHandlerRootView style={{flex: 1}}>
-          <RootNavigator />
+          <ModalWrapper>
+            <RootNavigator />
+          </ModalWrapper>
         </GestureHandlerRootView>
       </Provider>
     </ErrorBoundary>

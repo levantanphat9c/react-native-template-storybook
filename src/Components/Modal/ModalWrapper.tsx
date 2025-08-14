@@ -1,6 +1,6 @@
-import React, { createContext, useCallback, useMemo } from 'react';
+import React, {createContext, useCallback, useMemo} from 'react';
 
-import { withMemo } from '@/HOC';
+import withMemo from '@/HOC/withMemo';
 
 interface IProps {
   children?: React.ReactNode;
@@ -13,7 +13,7 @@ export const ModalContext = createContext({
 });
 
 const ModalWrapper = (props: IProps) => {
-  const { children } = props;
+  const {children} = props;
   const [stackModal, setStackModal] = React.useState([] as string[]);
   const onPushStackModal = useCallback((key: string) => {
     setStackModal(prev => [...prev, key]);
@@ -31,7 +31,11 @@ const ModalWrapper = (props: IProps) => {
     };
   }, [onPushStackModal, onPopStackModal, stackModal]);
 
-  return <ModalContext.Provider value={valueContext}>{children}</ModalContext.Provider>;
+  return (
+    <ModalContext.Provider value={valueContext}>
+      {children}
+    </ModalContext.Provider>
+  );
 };
 
 export default withMemo(ModalWrapper);

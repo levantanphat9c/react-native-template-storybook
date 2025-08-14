@@ -9,11 +9,11 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import {screenHeight, screenWidth} from '@/styles';
+import {useAppStateChange, useColor} from '@/Hooks';
+import {responsive} from '@/styles';
 
 import {ModalContext} from './ModalWrapper';
 import useStyles from './styles';
-import {useAppStateChange} from '@/Hooks';
 
 export interface IModalProps extends ModalProps {
   isVisible: boolean;
@@ -31,7 +31,8 @@ export interface IModalProps extends ModalProps {
 }
 
 const Modal = (props: IModalProps) => {
-  const {styles, dynamicColors} = useStyles();
+  const styles = useStyles();
+  const {dynamicColor} = useColor();
 
   const {
     containerStyle,
@@ -40,7 +41,7 @@ const Modal = (props: IModalProps) => {
     children,
     isCloseBackdrop = true,
     keyModal,
-    backgroundColorStatusBar = dynamicColors.Opacity.blueGray50Percent,
+    backgroundColorStatusBar = dynamicColor.Opacity.blueGray50Percent,
     onHideModal,
     ...rest
   } = props;
@@ -73,6 +74,8 @@ const Modal = (props: IModalProps) => {
     }
   }, 16);
 
+  console.log(stackModal, keyModal);
+
   if (stackModal?.[0] !== keyModal) {
     return null;
   }
@@ -86,6 +89,7 @@ const Modal = (props: IModalProps) => {
       supportedOrientations={['portrait', 'landscape']}
       {...rest}>
       <StatusBar backgroundColor={backgroundColorStatusBar} />
+
       <View style={[styles.modalBackground, containerStyle]}>
         {children}
         {isCloseBackdrop && (
@@ -97,10 +101,11 @@ const Modal = (props: IModalProps) => {
 
       {showMask && (
         <View
+          // eslint-disable-next-line react-native/no-inline-styles
           style={{
-            width: screenWidth,
-            height: screenHeight,
-            backgroundColor: dynamicColors.UI.sureface,
+            width: responsive.screenWidth,
+            height: responsive.screenHeight,
+            backgroundColor: dynamicColor.UI.sureface,
             zIndex: 2,
           }}
         />
