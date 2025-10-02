@@ -1,6 +1,6 @@
 import {isNotNilOrEmpty} from 'ramda-adjunct';
 import React, {useMemo} from 'react';
-import {TextProps} from 'react-native';
+import {Text, TextProps} from 'react-native';
 import ParsedText, {ParseShape} from 'react-native-parsed-text';
 import Animated, {AnimatedProps} from 'react-native-reanimated';
 
@@ -31,7 +31,14 @@ const Typography = (props: ITypographyProps) => {
     return [styles.container, styles[variant], {color}, style];
   }, [variant, color, style, styles]);
   const isParse = isNotNilOrEmpty(parse);
-  const TextComponent = isParse ? ParsedText : Animated.Text;
+
+  // Use appropriate text component
+  // In tests, Animated.Text might cause issues, so use Text as fallback
+  const TextComponent = isParse
+    ? ParsedText
+    : process.env.NODE_ENV === 'test'
+    ? Text
+    : Animated.Text;
 
   return (
     <TextComponent

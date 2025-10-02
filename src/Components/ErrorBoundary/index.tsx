@@ -3,6 +3,8 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 import logger from '@/Utils/logger';
 
+import {globalErrorHandler} from './globalErrorHandler';
+
 interface Props {
   children: ReactNode;
   fallback?: ReactNode;
@@ -28,6 +30,7 @@ interface State {
  * 📚 Tham khảo: https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary
  */
 class ErrorBoundary extends Component<Props, State> {
+  private errorUnsubscribe?: () => void;
   constructor(props: Props) {
     super(props);
     // Khởi tạo state ban đầu - không có lỗi
@@ -74,6 +77,20 @@ class ErrorBoundary extends Component<Props, State> {
     // - Sentry.captureException(error);
     // - analytics.trackError(error);
     // - crashReporting.report(error);
+  }
+
+  componentDidMount() {
+    // Lắng nghe lỗi global
+    this.errorUnsubscribe = globalErrorHandler.onError(error => {
+      this.setState({
+        hasError: true,
+        error,
+      });
+    });
+  }
+
+  componentWillUnmount() {
+    this.errorUnsubscribe?.();
   }
 
   /**

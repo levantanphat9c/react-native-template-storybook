@@ -1,6 +1,7 @@
 import React from 'react';
 
-import ChemistryScreen from '../Containers/Chemistry';
+import HomeScreen from '@/Containers/HomeScreen';
+
 import {SCREEN_NAMES} from './ScreenNames';
 
 export interface ScreenConfig {
@@ -11,11 +12,11 @@ export interface ScreenConfig {
 }
 
 export const TAB_SCREEN_MAPPING: Record<string, ScreenConfig> = {
-  [SCREEN_NAMES.CHEMISTRY]: {
-    component: ChemistryScreen,
-    title: 'Hóa Học',
+  [SCREEN_NAMES.HOME]: {
+    component: HomeScreen,
+    title: 'Home',
     icon: '🧪',
-    tabBarLabel: 'Hóa Học',
+    tabBarLabel: 'Home',
   },
 };
 

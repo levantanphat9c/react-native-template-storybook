@@ -1,10 +1,19 @@
 require('react-native-gesture-handler/jestSetup');
 
-jest.mock('react-native-reanimated', () => {
-  const Reanimated = require('react-native-reanimated/mock');
-  Reanimated.default.call = () => {};
-  return Reanimated;
-});
+// Simplified react-native-reanimated mock
+jest.mock('react-native-reanimated', () => ({
+  default: {},
+  useSharedValue: jest.fn(() => ({value: 0})),
+  useAnimatedStyle: jest.fn(fn => fn()),
+  useAnimatedGestureHandler: jest.fn(),
+  withTiming: jest.fn(value => value),
+  withSpring: jest.fn(value => value),
+  runOnJS: jest.fn(fn => fn),
+  runOnUI: jest.fn(fn => fn),
+  interpolate: jest.fn(),
+  Easing: {},
+  Extrapolation: {EXTEND: 'extend', CLAMP: 'clamp', IDENTITY: 'identity'},
+}));
 
 try {
   jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');

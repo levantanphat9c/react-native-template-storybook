@@ -6,6 +6,7 @@ module.exports = {
   setupFiles: ['./jest.setup.js'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
+    'react-native-reanimated': '<rootDir>/jest-reanimated-mock.js',
   },
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
